@@ -10,21 +10,22 @@ class HolidayPollApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Holiday Poll',
+      title: 'Test Sayfası',
       theme: ThemeData(
+        
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: AgeRangePage(),
+      home: Secim(),
     );
   }
 }
 
-class AgeRangePage extends StatefulWidget {
+class Secim extends StatefulWidget {
   @override
-  _AgeRangePageState createState() => _AgeRangePageState();
+  _SecimState createState() => _SecimState();
 }
 
-class _AgeRangePageState extends State<AgeRangePage> {
+class _SecimState extends State<Secim> {
   PageController _pageController = PageController();
   int _currentPage = 0;
 
@@ -50,10 +51,10 @@ class _AgeRangePageState extends State<AgeRangePage> {
         'https://i.hizliresim.com/fam1d2x.jpg',
   };
   Map<String, String> seasonImages = {
-    'ilkbahar': 'https://i.hizliresim.com/8vgx48z.jpg',
-    'yaz': 'https://i.hizliresim.com/ntl024y.jpg',
-    'sonbahar': 'https://i.hizliresim.com/jg0i0x8.jpg',
-    'kış': 'https://i.hizliresim.com/kyfl7n6.jpg',
+    'İlkbahar': 'https://i.hizliresim.com/8vgx48z.jpg',
+    'Yaz': 'https://i.hizliresim.com/ntl024y.jpg',
+    'Sonbahar': 'https://i.hizliresim.com/jg0i0x8.jpg',
+    'Kış': 'https://i.hizliresim.com/kyfl7n6.jpg',
   };
 
   Map<String, String> meaningImages = {
@@ -77,34 +78,32 @@ class _AgeRangePageState extends State<AgeRangePage> {
     'Sushi': 'https://i.hizliresim.com/35newmp.jpeg',
   };
   Map<String, String> SporImages = {
-    'yüzme': 'https://i.hizliresim.com/9qapu4e.jpg',
-    'kayak': 'https://i.hizliresim.com/ijf6n4x.jpg',
-    'basketbol': 'https://i.hizliresim.com/1av4esr.jpeg',
-    'yoga': 'https://i.hizliresim.com/gcvxbaz.jpg',
+    'Yüzme': 'https://i.hizliresim.com/9qapu4e.jpg',
+    'Kayak': 'https://i.hizliresim.com/ijf6n4x.jpg',
+    'Basketbol': 'https://i.hizliresim.com/1av4esr.jpeg',
+    'Yoga': 'https://i.hizliresim.com/gcvxbaz.jpg',
   };
-
-
- 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:Colors.white,
+        backgroundColor: Colors.white,
         title: Text(
-          'TESTE BAŞLAYALIM',
+          'TESTE BAŞLAYALIM!',
           style: GoogleFonts.azeretMono(
-            fontSize: 40,
-            color: Colors.blue,
-            shadows: [Shadow(blurRadius: 20, color: Color.fromARGB(236, 255, 255, 255))],
+            fontSize: 50,
+            shadows: [
+              Shadow(blurRadius: 20, color: Color.fromARGB(236, 255, 255, 255))
+            ],
           ).copyWith(color: Color.fromARGB(255, 255, 119, 0)),
         ),
         centerTitle: true,
       ),
       body: Container(
         child: AnimatedContainer(
-          duration: Duration(milliseconds: 500),
-          
+          duration: Duration(
+              milliseconds: 500), //süre özelliği  animasyonun ne kadar süreceği
           decoration: BoxDecoration(
             image: DecorationImage(
               image: NetworkImage(_getCurrentPageBackgroundImage()),
@@ -114,7 +113,8 @@ class _AgeRangePageState extends State<AgeRangePage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment
+                  .stretch, //çapraz eksen boyunca mevcut alana sığacak şekilde widget'ın genişlemesi
               children: <Widget>[
                 Expanded(
                   child: PageView.builder(
@@ -144,9 +144,9 @@ class _AgeRangePageState extends State<AgeRangePage> {
                 SizedBox(height: 20),
                 if (_currentPage == 6)
                   ElevatedButton(
-                    
                     onPressed: () {
                       DecisionHandler.handleDecision(
+                        //kullanıcı girdilerine dayalı olarak bir sonuç üretmek için tanımladığımız fonk.
                         context,
                         selectedAgeGroup,
                         selectedBudget,
@@ -158,9 +158,9 @@ class _AgeRangePageState extends State<AgeRangePage> {
                       );
                     },
                     style: ButtonStyle(
-    backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 119, 0)),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          Color.fromARGB(255, 255, 119, 0)),
                     ),
-                    
                     child: Text(
                       'Gönder',
                       style: GoogleFonts.azeretMono(
@@ -171,22 +171,28 @@ class _AgeRangePageState extends State<AgeRangePage> {
                   ),
                 SizedBox(height: 20),
                 if (_currentPage > 0 && _currentPage < 6)
-                  ElevatedButton(
-                    
-                    onPressed: () {
-                      _pageController.nextPage(
-                          duration: Duration(milliseconds: 500),
-                          curve: Curves.easeInOut);
-                    },
-                    style: ButtonStyle(
-    backgroundColor: MaterialStateProperty.all<Color>(Color.fromARGB(255, 255, 119, 0)), // Renk değişikliği
-  ),
-                    child: Text(
-                      'İleri',
-                      style: GoogleFonts.azeretMono(
-                        fontSize: 15,
-                        shadows: [Shadow(blurRadius: 5, color: Colors.grey)],
-                      ).copyWith(color: Colors.white),
+                  Container(
+                    height: 20,
+                    width: 50,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _pageController.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeInOut);
+                      },
+                      style: 
+                      ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all<Color>(
+                            Color.fromARGB(255, 255, 119, 0)), // Renk değişikliği
+                      ),
+                  
+                      child: Text(
+                        'İleri',
+                        style: GoogleFonts.azeretMono(
+                          fontSize: 15,
+                          shadows: [Shadow(blurRadius: 5, color: Colors.grey)],
+                        ).copyWith(color: Colors.white),
+                      ),
                     ),
                   ),
                 SizedBox(height: 20),
@@ -202,7 +208,7 @@ class _AgeRangePageState extends State<AgeRangePage> {
                       style: GoogleFonts.azeretMono(
                         fontSize: 15,
                         shadows: [Shadow(blurRadius: 5, color: Colors.grey)],
-                      ).copyWith(color: Colors.white),
+                      ).copyWith(color: Color.fromARGB(255, 255, 119, 0)),
                     ),
                   ),
               ],
@@ -213,12 +219,9 @@ class _AgeRangePageState extends State<AgeRangePage> {
     );
   }
 
-  String _getCurrentPageBackgroundImage() {
-  return 'https://i.hizliresim.com/97bgg5m.gif';
-}
-
-
-   
+  String _getCurrentPageBackgroundImage() { //gif arkaplanı için
+    return 'https://i.hizliresim.com/97bgg5m.gif';
+  }
 
   Widget buildQuestionWithOptions(int index) {
     String question;
@@ -264,7 +267,7 @@ class _AgeRangePageState extends State<AgeRangePage> {
         selectedOption = selectedFood;
         break;
       case 6:
-        question = '7. Hangi spor aktivetisini izlemeyi seversin?';
+        question = '7. Hangi spor aktivetisini seversin?';
         options = SporImages.keys.toList();
         imageMap = SporImages;
         selectedOption = selectedSpor;
@@ -277,150 +280,151 @@ class _AgeRangePageState extends State<AgeRangePage> {
     }
 
     return Container(
-    height: 300,
-    width: 500, // Adjust the height as needed
-    decoration: BoxDecoration(
-    
-     // Set the alpha value as needed
-    borderRadius: BorderRadius.circular(20),
-    boxShadow: [
-      BoxShadow(
-        color: Colors.white.withOpacity(0.5), 
-        blurRadius: 10,
-        spreadRadius: 2,
-      ),
-    ],
-    ),
-    child: Column(
-      
-      mainAxisAlignment: MainAxisAlignment.center, 
-    crossAxisAlignment: CrossAxisAlignment.center, 
-      children: <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: Text(
-            question,
-            style: GoogleFonts.azeretMono(
-                            
-                            fontSize: 15,
-                            
-                            shadows: [Shadow(blurRadius: 5,color: Colors.grey,),],
-                            ).copyWith(color:Color.fromARGB(255, 255, 119, 0)),
-            textAlign: TextAlign.center,
-          ),
+        height: 280,
+        width: 500,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.white.withOpacity(0.5),
+              blurRadius: 10,
+              spreadRadius: 2,
+            ),
+          ],
         ),
-        SizedBox(height: 10),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: options.map((option) {
-              bool isSelected = selectedOption == option;
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text(
+                question,
+                style: GoogleFonts.azeretMono(
+                  fontSize: 15,
+                  shadows: [
+                    Shadow(
+                      blurRadius: 5,
+                      color: Colors.grey,
+                    ),
+                  ],
+                ).copyWith(color: Color.fromARGB(255, 255, 119, 0)),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal, //yatay scrollable görüntü oluşturuyor
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: options.map((option) {
+                  bool isSelected = selectedOption == option;
 
-              return GestureDetector(
-                onTap: () {
-                  setState(() {
-                    switch (index) {
-                      case 0:
-                        selectedAgeGroup = option;
-                        break;
-                      case 1:
-                        selectedBudget = option;
-                        break;
-                      case 2:
-                        selectedSeason = option;
-                        break;
-                      case 3:
-                        selectedMeaning = option;
-                        break;
-                      case 4:
-                        selectedTransport = option;
-                        break;
-                      case 5:
-                        selectedFood = option;
-                        break;
-                      case 6:
-                        selectedSpor = option;
-                        break;
-                    }
-                  });
-                },
-                child: Container(
-                  width: isSelected ? 100 : 100,  
-                  height: isSelected ? 150 : 190,  
-                  margin: EdgeInsets.all(1),
-                  padding: EdgeInsets.all(1),
-                  decoration: BoxDecoration(
-                  color: isSelected ? Colors.transparent : null,
-                  gradient: isSelected
-                      ? null
-                      : LinearGradient(
-                          colors: [
-                            Colors.transparent,
-                            Colors.transparent,
-                          ],
+                  return GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        switch (index) {
+                          case 0:
+                            selectedAgeGroup = option;
+                            break;
+                          case 1:
+                            selectedBudget = option;
+                            break;
+                          case 2:
+                            selectedSeason = option;
+                            break;
+                          case 3:
+                            selectedMeaning = option;
+                            break;
+                          case 4:
+                            selectedTransport = option;
+                            break;
+                          case 5:
+                            selectedFood = option;
+                            break;
+                          case 6:
+                            selectedSpor = option;
+                            break;
+                        }
+                      });
+                    },
+                    child: Container(
+                      width: isSelected ? 120 : 120,
+                      height: isSelected ? 150 : 150,
+                      margin: EdgeInsets.all(2),
+                      padding: EdgeInsets.all(2),
+                      decoration: BoxDecoration(
+                        color: isSelected ? Colors.transparent : null,
+                        gradient: isSelected
+                            ? null
+                            : LinearGradient(
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.transparent,
+                                ],
+                              ),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: isSelected
+                              ? Colors.transparent
+                              : Colors.transparent,
+                          width: 2,
                         ),
-
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                    color: isSelected
-                        ? Colors.transparent 
-                        : Colors.transparent,
-                    width: 2,
-                  ),
-                  boxShadow: isSelected
-                      ? [
-                          BoxShadow(
-                            color: Color.fromARGB(255, 255, 119, 0),
-                            blurRadius: 5,
-                            spreadRadius: 2,
-                          ),
-                        ]
-                      : [],
-                ),
-                  
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        width: 90,
-                        height: 90,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            color: isSelected
-                                ? Color.fromARGB(255, 255, 165, 0)
-                                : Colors.transparent,
-                            width: 2,
-                          ),
-                        ),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(8),
-                          child: Image.network(
-                            imageMap[option]!,
-                            width: 80,
-                            height: 80,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
+                        boxShadow: isSelected
+                            ? [
+                                BoxShadow(
+                                  color: Color.fromARGB(255, 255, 119, 0),
+                                ),
+                              ]
+                            : [],
                       ),
-                      SizedBox(height: 4),
-                      Text(
-                        option,
-                        style: GoogleFonts.azeretMono(
-                            
-                            fontSize: 15,
-                            
-                            shadows: [Shadow(blurRadius: 5,color: Colors.grey,),],
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: 90,
+                            height: 90,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: isSelected
+                                    ? Color.fromARGB(255, 255, 165, 0)
+                                    : Colors.transparent,
+                                width: 2,
+                              ),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8),
+                              child: Image.network(
+                                imageMap[option]!,
+                                width: 85,
+                                height: 85,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 6),
+                          Text(
+                            option,
+                            style: GoogleFonts.azeretMono(
+                              fontSize: 12,
+                              shadows: [
+                                Shadow(
+                                  blurRadius: 5,
+                                  color: Colors.grey,
+                                ),
+                              ],
                             ).copyWith(color: Colors.black),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
-        ),
-        SizedBox(height: 12),
-      ],));}
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+            SizedBox(height: 12),
+          ],
+        ));
+  }
 }
