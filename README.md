@@ -32,9 +32,7 @@ Bu uygulama, Flutter kullanılarak geliştirilmiş bir seyahat yeri önerme uygu
 1. Projeyi bilgisayarınıza klonlayın.
 2. Flutter'ı yükleyin ve projeyi çalıştırın.
 
-## Katkıda Bulunma
 
-Bu proje açık kaynaklıdır ve katkılarınızı bekliyoruz! Her türlü katkı, geri bildirim veya öneri için lütfen iletişime geçin.
 
 
 
