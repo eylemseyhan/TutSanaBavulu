@@ -34,20 +34,21 @@ class AmerikaYemek extends StatelessWidget {
             children: [
               _buildYemek(
                 'Clam Chowder',
-                'https://images.pexels.com/photos/12263112/pexels-photo-12263112.png?auto=compress&cs=tinysrgb&w=600',
                 'Çorbanızı tabakta mı yoksa bardakta mı alırdınız? Peki ya içi oyulmuş ekmeğin içine doldursak? '
                 'Midye ve patates gibi farklı malzemelerle hazırlanan bu çorba özellikle ülkenin kıyı bölgelerinde lezzet tutkunlarının gözdesi.',
+                'https://i.hizliresim.com/j1go0l5.jpg',
               ),
               _buildYemek(
                 'Pretzel',
-                'https://images.pexels.com/photos/1718383/pexels-photo-1718383.jpeg?auto=compress&cs=tinysrgb&w=600',
                 'Bir çeşit sert simit olarak adlandırılabilecek pretzel de Amerika\'da tadabileceğiniz farklı lezzetler arasında ilk sıralarda geliyor. '
                 'Genellikle hot dog arabalarında satılan pretzel yanında kahve ile oldukça iyi bir atıştırmalık.',
+                'https://i.hizliresim.com/nteq3ie.jpg',
               ),
               _buildYemek(
                 'Hot Dog',
                 'Amerikada popüler olan bir diğer atıştırmalık türüdür. Genellikle bir köfte veya sosisin özel bir ekmeğe konulmasıyla yapılır. ',
-                'https://images.pexels.com/photos/3023479/pexels-photo-3023479.jpeg?auto=compress&cs=tinysrgb&w=600',
+                'https://i.hizliresim.com/d7ehshl.jpg',
+                
               ),
             ],
           ),
@@ -94,6 +95,5 @@ Widget _buildYemek(String title, String description, String imageUrl) {
               ),
             ],
           ),
-        ),
-      ],),);
+        ),],),);
 }
