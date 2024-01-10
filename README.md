@@ -1,3 +1,5 @@
+
+
 # TutSanaBavulu
 
 Bu uygulama, Flutter kullanılarak geliştirilmiş bir seyahat yeri önerme uygulamasıdır. Uygulama, size dünyanın farklı köşelerine ulaşmanın ve yeni yerler keşfetmenin kapılarını aralıyor. İster anlık bir kararla, çarkı döndürerek hemen bir ülkeye yönlendirilin; ister daha derin bir deneyim için kişilik testiyle en uygun tatil yerini bulun. Kullanıcılar, giriş yapabilir veya üye olabilirler. Ardından, seyahat için öneri almak için çarkı döndürmek veya bir test çözmek arasında seçim yapabilirler. 
@@ -30,9 +32,7 @@ Bu uygulama, Flutter kullanılarak geliştirilmiş bir seyahat yeri önerme uygu
 1. Projeyi bilgisayarınıza klonlayın.
 2. Flutter'ı yükleyin ve projeyi çalıştırın.
 
-## Katkıda Bulunma
 
-Bu proje açık kaynaklıdır ve katkılarınızı bekliyoruz! Her türlü katkı, geri bildirim veya öneri için lütfen iletişime geçin.
 
 
 
