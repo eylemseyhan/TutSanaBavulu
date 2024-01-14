@@ -22,7 +22,7 @@ class TutSanaBavuluApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Colors.blue,
         colorScheme: ColorScheme.fromSwatch(
-          primarySwatch: Colors.blue,
+          primarySwatch: Colors.indigo,
           accentColor:Color.fromARGB(255, 255, 119, 0),
         ),
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -47,6 +47,14 @@ class TutSanaBavuluApp extends StatelessWidget {
         ),
       ),
       home:AnimationPage(),
+      routes: {
+        'SifreUnuttum' :(context) => ForgotPasswordScreen(),
+        'GirisYap' : (context) => AraEkran(),
+        'UyeOl':(context) => SignUpScreen(),
+        'Hakkimizda':(context) => HakkimizdaSayfasi(),
+        'İletisim':(context) => IletisimSayfasi()
+
+      },
     );
   }
 }
@@ -55,6 +63,32 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: Column(
+          children: [
+            UserAccountsDrawerHeader(accountName: Text('Kullanıcı',style: GoogleFonts.azeretMono(
+                            
+                            fontSize: 15,
+                            
+                            shadows: [Shadow(blurRadius: 5,color: Colors.grey,),],
+                            ).copyWith(color:Colors.white),), accountEmail: Text('asdfgh@gmail.com',style: GoogleFonts.azeretMono(
+                            
+                            fontSize: 15,
+                            
+                            shadows: [Shadow(blurRadius: 5,color: Colors.grey,),],
+                            ).copyWith(color:Colors.white),),
+            currentAccountPicture: Image.network('https://i.hizliresim.com/gwh0nat.png'),
+            ),
+            Expanded(
+              child: ListView(children: [
+                ListTile(leading: Icon(Icons.home),title: Text('Ana Ekran'),trailing: Icon(Icons.chevron_right),),
+                ListTile(leading: Icon(Icons.account_box),title: Text('Ana Ekran'),trailing: Icon(Icons.chevron_right),),
+                ListTile(leading: Icon(Icons.access_alarms_outlined),title: Text('Ana Ekran'),trailing: Icon(Icons.chevron_right),),
+              ],),
+            )
+          ],
+        ),
+      ) ,
       extendBodyBehindAppBar: true, // Scaffold'ın body kısmını AppBar'ın arkasına uzatıyor
       appBar: AppBar(
         flexibleSpace: Center(
@@ -160,10 +194,7 @@ class HomePage extends StatelessWidget {
                       SizedBox(height: 20),
                       TextButton(
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
-                            );
+                          Navigator.pushNamed(context, 'SifreUnuttum');
                         },
                         style: TextButton.styleFrom(
                           primary: Colors.blue,
@@ -200,10 +231,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => AraEkranSayfasi()),
-                            );
+                            Navigator.pushNamed(context, 'GirisYap');
                           },
                           child: Text(
                             'Giriş Yap',
@@ -238,11 +266,7 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                             Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUpScreen()), 
-                    );
-                            print('Sign Up button pressed');
+                            Navigator.pushNamed(context, 'UyeOl');
                           },
                           child: Text(
                             'Üye Ol',
@@ -269,11 +293,8 @@ class HomePage extends StatelessWidget {
       children: [
         TextButton(
           onPressed: () {
-            Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HakkimizdaSayfasi()),
-                  );
-            // Hakkımızda sayfasına yönlendirme
+            Navigator.pushNamed(context, 'Hakkimizda');
+
           },
           child: Text(
             'Hakkımızda',
@@ -288,12 +309,8 @@ class HomePage extends StatelessWidget {
         ),
         TextButton(
           onPressed: () {
-             Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => IletisimSayfasi()),
-                  );
+            Navigator.pushNamed(context, 'İletisim');
           },
-            // İletişim sayfasına yönlendirme 
           
           child: Text(
             'İletişim',

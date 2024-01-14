@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'main.dart';
 import 'successfully_signedup.dart';
 import 'package:google_fonts/google_fonts.dart';

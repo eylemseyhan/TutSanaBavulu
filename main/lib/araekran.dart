@@ -127,8 +127,8 @@ class AraEkranSayfasi extends StatelessWidget {
                         borderRadius: BorderRadius.circular(70),
                         child: Image.network(
                           'https://i.hizliresim.com/glt0zes.jpg',
-                          width: 200, // Set your desired width
-                          height: 200, // Set your desired height
+                          width: 200, 
+                          height: 200, 
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -138,10 +138,10 @@ class AraEkranSayfasi extends StatelessWidget {
                     
                     GestureDetector(
   onTap: () {
-    // Navigate to the desired screen when the second image is clicked
+    
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => HolidayPollApp()), // Replace SecondScreen with the actual screen you want to navigate to
+      MaterialPageRoute(builder: (context) => HolidayPollApp()), 
     );
   },
   child: Container(
@@ -153,8 +153,8 @@ class AraEkranSayfasi extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       child: Image.network(
         'https://i.hizliresim.com/tkcmnyn.jpg',
-        width: 200, // Set your desired width
-        height: 200, // Set your desired height
+        width: 200, 
+        height: 200, 
         fit: BoxFit.cover,
       ),
     ),
